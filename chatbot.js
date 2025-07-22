@@ -1,50 +1,23 @@
-// NOVO: Adiciona o framework Express para criar o servidor web
-const express = require('express');
-
-// Dependências do seu bot
 const qrcode = require('qrcode-terminal');
-const { Client } = require('whatsapp-web.js'); // Removi Buttons, List, MessageMedia se não estiverem em uso para limpar
+const { Client } = require('whatsapp-web.js');
 const client = new Client();
 
-
-// NOVO: Cria a aplicação Express
-const app = express();
-// NOVO: O Render define a porta pela variável de ambiente PORT
-const PORT = process.env.PORT || 8080;
-
-// NOVO: Cria uma rota principal ("/") que o Render pode verificar para saber se o serviço está vivo
-app.get('/', (req, res) => {
-  res.send('<h1>O Chatbot Ismael está rodando! 🦎💚</h1>');
+// serviço de leitura do qr code
+client.on('qr', qr => {
+    qrcode.generate(qr, {small: true});
 });
 
-// NOVO: Inicia o servidor web para escutar na porta definida
-app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Servidor rodando na porta ${PORT}.`);
-    
-    // AGORA, inicializa o cliente do WhatsApp DEPOIS que o servidor estiver pronto.
-    // Isso garante que o Render não dê timeout.
-    
-    // serviço de leitura do qr code
-    client.on('qr', qr => {
-        qrcode.generate(qr, {small: true});
-    });
-    
-    // apos isso ele diz que foi tudo certo
-    client.on('ready', () => {
-        console.log('Tudo certo! WhatsApp conectado.');
-    });
-    
-    // E inicializa tudo 
-    client.initialize();
+// apos isso ele diz que foi tudo certo
+client.on('ready', () => {
+    console.log('Tudo certo! WhatsApp conectado.');
 });
 
-
-// =================================================================
-// TODA A LÓGICA DO SEU BOT CONTINUA IGUAL A PARTIR DAQUI
-// =================================================================
+// E inicializa tudo 
+client.initialize();
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
+// ... resto da sua lógica do bot ...
 client.on('message', async msg => {
     if (msg.body.match(/(dia|tarde|noite|oi|Oi|Olá|olá|ola|Ola|OI|OLA|OLÁ)/i) && msg.from.endsWith('@c.us')) {
         const chat = await msg.getChat();
