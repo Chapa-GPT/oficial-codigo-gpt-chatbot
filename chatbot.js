@@ -130,12 +130,28 @@ client.on('message', async msg => {
         await delay(3000);
         await chat.sendStateTyping();
         await delay(3000);
-        await client.sendMessage(msg.from, 'me cobra de fazer isso dps');
+        await client.sendMessage(msg.from, 'Na UnB, há diversos programas que visam manter o discente na universidade e melhorar a qualidade de vida dos discentes por meio de programas, auxílios e bolsas, são os chamados programas de assistência estudantil. No Decanato de Assuntos Comunitários (DAC) há várias sub-diretorias responsáveis por isso. Abaixo cito algumas diretorias e alguns auxílios e bolsas que elas fornecem.');
         
         await delay(3000);
         await chat.sendStateTyping();
         await delay(3000);
-        await client.sendMessage(msg.from, 'NÃO ESQUECE!');
+        await client.sendMessage(msg.from, '*Diretoria de Desenvolvimento Social (DDS):*\n\nAuxílio socioeconômico - Bolsa mensal de R$ 700,00 para o estudante gastar com o que quiser/precisar\nAuxílio inclusão digital - Bolsa única de R$ 2000,00 para o estudante adquirir um computador, notebook ou celular\nAuxílio transporte - Bolsa mensal de R$ 400,00 para o estudante custear parcialmente o transporte até a UnB\nAuxílio creche - Repasse mensal de R$ 700,00 para pais e mães que estudam na UnB e precisam arcar com a creche de seu filho\nAuxílio alimentação - Isenção de pagamento nas refeições do Restaurante Universitário, ou seja, o aluno não precisa mais pagar para utilizar o RU em qualquer uma das três refeições\nMoradia estudantil - A UnB fornece uma vaga para o estudante morar nos apartamentos denominados de Casa do Estudante Universitário (CEU), localizados majoritariamente no campus Darcy Ribeiro.');
+
+        await delay(3000);
+        await chat.sendStateTyping();
+        await delay(3000);
+        await client.sendMessage(msg.from, '*Diretoria de Esporte e Atividades Comunitárias (DEAD):*\n\nFestival FINCA - Auxílio único de R$ 2000,00 destinado a estudantes e bandas que participarem do festival de música da UnB\nPromotor e/ou praticante artístico cultural ou de atividade física - Auxílio mensal que varia de R$ 250,00 a R$ 700,00 para estudantes que promovem eventos culturais ou que praticam atividades artísticas culturais ou atividades físicas de alto desempenho\nOficina de arte e cultura - Bolsa mensal de R$ 400,00 para estudantes auxiliarem na produção e promoção de projetos culturais da UnB');
+
+        await delay(3000);
+        await chat.sendStateTyping();
+        await delay(3000);
+        await client.sendMessage(msg.from, '*Diretoria de Acessibilidade (DACES):*\n\nAuxílio tecnologia assistiva - Auxílio único de R$ 3000,00 para aquisição ou manutenção de equipamentos de tecnologia assistiva\nPrograma de tutoria - Bolsa mensal de R$ 400,00 para estudantes de graduação atuarem como tutores de colegas do curso atendidos pela DACES e que necessitam de auxílio em atividades acadêmicas\nLedor e transcritor - Bolsa mensal de R$ 400,00 para estudantes de graduação atuarem como ledores ou transcritores de materiais adaptados para alunos atendidos pela DACES');
+
+        await delay(3000);
+        await chat.sendStateTyping();
+        await delay(3000);
+        await client.sendMessage(msg.from, 'Há diversos outras diretorias e programas de assistência estudandil. Para mais informações, recomendamos o site oficial da DAC: https://dac.unb.br/\n\nObs: o CALEA não se responsabiliza por quaisquer mudanças nos editais. Toda informação divulgada por aqui deve ser tomada apenas como norteadora. Busque sempre se informar pelo site da DAC e pelos editais');
+        
     }
 
     if (msg.body !== null && msg.body === '7' && msg.from.endsWith('@c.us')) {
